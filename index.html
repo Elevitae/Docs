@@ -1,1 +1,438 @@
-Guía inicial de configuración.
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía inicial de configuración.</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>ELEVITAE</h1>
+        <h2>Documentations</h2>
+        
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+      <section id="section">
+        <h2>Guía de configuración inicial del proyecto</h2>
+        <p>
+          Este documento explica cómo configurar y levantar el proyecto completo
+          desde cero, incluyendo todos los repositorios involucrados.
+        </p>
+        <h3>Objetivo del documento</h3>
+        <p>
+          Este documento sirve como una guía práctica para configurar y levantar
+          el proyecto completo desde cero. Su objetivo es centralizar en un solo
+          lugar los pasos, requisitos y consideraciones necesarias para trabajar
+          con todos los repositorios que forman parte del sistema, evitando
+          confusión y configuraciones inconsistentes.
+        </p>
+        <h3>A quién está dirigido</h3>
+        <p>
+          Este tutorial está dirigido a: 
+          <ul>
+            <li>- Desarrolladores que se integran por
+          primera vez al proyecto.  </li>
+          <li>- Personas que necesitan levantar el proyecto
+          en un entorno nuevo.</li>
+          <li>- El propio autor del proyecto como referencia
+          futura.</li>
+          </ul>
+        </p>
+        <h3>Qué no cubre</h3>
+        <p>
+          Este documento NO cubre:
+          <ul>
+            <li>- Detalles internos de implementación del código.  </li>
+          <li>- Explicaciones profundas de la lógica de negocio.</li>
+          <li>- Guías completas de desarrollo por repositorio.</li>
+          <li>- Despliegue a producción ni configuración de infraestructura.</li>
+          </ul>
+          Para esos temas existen (o existirán) documentos específicos o la documentación propia de cada repositorio.
+        </p>
+      </section>
+
+      <section id="section">
+        <h2>Repositorios involucrados</h2>
+        <p>El proyecto está dividido en 4 repositorios, cada uno con una responsabilidad clara.
+Esta separación permite mantener el código organizado y facilita el mantenimiento del sistema.
+
+<a href="https://github.com/Elevitae">https://github.com/Elevitae</a>
+
+En este enlace puede descargar cada uno de estos repositorios:
+
+<ul>
+            <li>1. <b>Auth</b>: En este repositorio se encuentra toda la lógica frontend de la autenticación de la aplicación. </li>
+          <li>2. <b>Elevitae-admin</b>: En este repositorio se encuentra el backoffice de todas las configuraciones 
+	que necesita tener el usuario para su correcto uso de la aplicación.</li>
+          <li>3. <b>Elevitae-backend</b>: Este es el proyecto desarrollado en GO para el manejo de todos los servicios que hacen que la aplicación interactúe con la base de datos del proyecto.</li>
+          <li>4. <b>Elevitae-landing</b>: Este es el repositorio donde se encuentra la página principal de la aplicación.</li>
+          </ul>
+
+
+
+</p>
+      </section>
+
+      <section id="section">
+        <h2>Requisitos previos</h2>
+        <p>
+          Antes de comenzar con la configuración y ejecución del proyecto, es necesario contar con
+algunos requisitos básicos de desarrollo. Estos requisitos aplican de forma general a todos
+los repositorios involucrados y permiten garantizar un entorno de trabajo consistente.
+        </p>
+        <h3>Conocimientos básicos</h3>
+        <p>
+          Se espera que la persona que utilice este tutorial tenga conocimientos básicos de:
+        
+        <ul>
+            <li>- Uso de la terminal o línea de comandos. </li>
+          <li>- Git y control de versiones (clonar repositorios, cambiar de ramas).</li>
+          <li>- Desarrollo web (HTML, CSS y JavaScript).</li>
+          <li>- Conceptos básicos de frontend y backend.</li>
+          </ul>
+          No es necesario tener conocimiento profundo del proyecto para seguir esta guía.</p>
+
+          <h3>Herramientas necesarias</h3>
+        <p>
+          Para trabajar con el proyecto es necesario tener instaladas las siguientes herramientas:
+        
+        <ul>
+            <li> - **Node.js** (versión LTS recomendada).</li>
+            <li>- **npm** (incluido con Node.js) u otro gestor de paquetes compatible.</li>
+            <li>- **Git**.</li>
+            <li>- Un editor de código (por ejemplo, Visual Studio Code).</li>
+            <li>- Tener instalado Redis o un Docker con Redis.</li>
+            <li>- Tener instalado el PgAdmin4.</li></ul>
+          </p>
+
+            <h3>Accesos y configuraciones previas</h3>
+        <p>
+          Antes de iniciar, asegúrate de contar con:
+        
+        <ul>
+<li>- Acceso a los repositorios del proyecto.</li>
+<li>- Permisos necesarios para clonar y ejecutar los repositorios.</li>
+<li>- Credenciales o tokens requeridos para servicios externos (si aplica).</li>
+</ul>
+           
+          </p>
+
+            <h3>Consideraciones generales</h3>
+        <p>
+          
+        
+        <ul>
+<li>- El proyecto está pensado para desarrollarse en un entorno local.</li>
+<li>- Algunas configuraciones pueden variar según el sistema operativo.</li>
+<li>- Este tutorial asume que el entorno de desarrollo se encuentra limpio o recién configurado.</li>
+
+</ul>
+        Si alguno de estos requisitos no se cumple, se recomienda resolverlo antes de continuar con
+los pasos de instalación y configuración.   
+          </p>
+      </section>
+      <section id="section">
+        <h2>Flujo general de instalación</h2>
+        <p>
+          Esta sección describe el flujo general para configurar y levantar el proyecto por primera vez.
+El objetivo es ofrecer una visión clara del orden en el que deben realizarse los pasos, sin
+entrar todavía en configuraciones específicas de cada repositorio.
+
+El proceso completo puede dividirse en las siguientes etapas:
+        </p>
+        <h3>Obtención del código fuente</h3>
+        <p>
+          
+        
+        <ul>
+<li>- Crear una carpeta local en el ordenador donde desea clonar estos repositorios.</li>
+<li>- Clonar todos los repositorios que forman parte del proyecto.</li>
+<pre><code>
+https://github.com/Elevitae/auth.git
+https://github.com/Elevitae/elevitae-backend.git
+https://github.com/Elevitae/elevitae-admin.git
+https://github.com/Elevitae/elevitae-landing.git
+    </code></pre>
+	Para clonarlos podemos hacer uso de la herramienta GitHub Desktop o mediante un terminal con el siguiente comandos.
+	"git clone direccion_del_repositorio"</p>
+
+          <h3>Instalación de dependencias</h3>
+        <p>
+          Despues de tener cada repositorio ya en nuestro ordenador, procedemos a instalar las dependencias necesarias para que funcione correctamente
+        
+        <ul>
+           <li> - Acceder a cada repositorio desde la terminal.	</li>
+<li>- Instalar las dependencias necesarias utilizando el gestor de paquetes correspondiente.
+	<pre><code>npm install"</code></pre></li>
+<li>- Verificar que la instalación finalice sin errores.</li>
+
+           </ul>
+          </p>
+
+            <h3>Instalación y configuración de pgAdmin 4</h3>
+        <p>
+          pgAdmin 4 es la herramienta que se utilizará para la administración de la base de datos
+PostgreSQL del proyecto. A través de esta herramienta se podrán gestionar bases de datos,
+usuarios, conexiones y ejecutar consultas necesarias durante el desarrollo.           
+          </p>
+
+            <h4>Instalación de pgAdmin 4</h4>
+        <p>
+          Para instalar pgAdmin 4 se deben seguir los pasos correspondientes al sistema operativo
+utilizado:
+        
+        <ul>
+<li>- Descargar el instalador oficial de pgAdmin 4 desde su sitio web. https://www.postgresql.org/download/</li>
+<li>- Ejecutar el instalador y seguir las instrucciones del asistente.</li>
+<li>>- Durante la instalación, aceptar las configuraciones por defecto, salvo que el proyecto
+  indique lo contrario.
+  PostgreSQL al instalarse genera un usuario llamado "postgres" y le va a pedir que le configure una contraseña.
+  Para un correcto funcionamiento del proyecto puede colocar "rootpassword", recordar que esta contraseña es solo para la etapa de desarrollo.
+  Una vez culminada esta etapa, dejara de tener efecto en la aplicación.</li>
+<li>- Finalizar la instalación y verificar que la aplicación se puede iniciar correctamente.</li>
+
+</ul>
+      
+          </p>
+          <h4>Primer inicio y configuración básica</h4>
+        <p>
+          Una vez instalado pgAdmin 4:
+        
+        <ul>
+<li>- Abrir la aplicación.</li>
+<li>- Registrar el servidor de base de datos PostgreSQL que será utilizado por el proyecto.</li>
+	<ul><li>- En el menú principal seleccionamos "OBJECT/REGISTER/SERVER".</li>
+	Muestra una ventana donde tenemos que cambiar los sigueintes campos:
+	<li>- Name: Nombre del server que vamos a crear.</li>
+	En la Pestaña Connection
+	<li>- Host name/address: Colocamos "localhost"</li>
+	<li>- Password: "rootpassword"</li></ul>
+	y damos clic en SALVAR o SAVE
+<li>- Verificar la conexión al servidor antes de continuar.</li>
+<li>- Crear la base de datos del proyecto.</li>
+	<ul><li>- Para ello damos clic derecho sobre "Databases/CREATE/DATABASE" </li>
+	<li>- En la ventana que se muestra le colocamos un nombre y damos clic en el boton SALVAR O SAVE.</li></ul>
+
+</ul>
+      En este punto, pgAdmin 4 quedará listo para administrar la base de datos del proyecto.
+          </p>
+
+          <h4>Consideraciones importantes</h4>
+        <p>
+         
+        
+        <ul>
+<li>- pgAdmin 4 es solo una herramienta de administración; la base de datos PostgreSQL debe
+  estar instalada y ejecutándose previamente.</li>
+<li>- Las credenciales y datos de conexión deben mantenerse seguros y no incluirse directamente
+  en el repositorio.</li>
+<li>- Las configuraciones específicas de la base de datos del proyecto se detallan en secciones
+  posteriores de este documento.</li>
+</ul>
+      
+          </p>
+      </section>
+<section id="section">
+        <h2>Ejecución de los migrations</h2>
+        <p>
+          Una vez unstalado el PgAdmin4 y creado el server y la base de datos, entonces procedemos a correr los scripts necesarios Para
+introducir los datos en la misma.
+Primero que todo debemos abrir el proyecto BACKEND descargado desde gibhub. 
+        
+        <ul>
+<li>1. Una vez abierto, nos colocamos sobre la carpeta "SERVICES/AUTH/INTERNAL/DATABASE". Dentro de ese directorio se encuentran 3 carpetas
+	más. (data, migrations, seed) borramos el contenido interno de cada una de esas carpetas, dejando las 3 carpetas vacias.</li>
+	<li>2. Abrimos el fichero "MAIN.GO" que se encuentra en el directorio "SERVICES/AUTH/CMD" </li>
+	  <ul><li>2.1 Comentariamos las siguientes lineas de código:</li>
+	   <li><pre><code>"github.com/Elevitae/elevitae-backend/services/auth/internal/database/seed"</code></pre></li>
+	   <li><pre><code>driftflow "github.com/misaelcrespo30/DriftFlow"</code></pre></li>
+	   <li><pre><code>driftflow.SetSeederRegistry(seed.RegisterSeeders)</code></pre></li></ul>
+   <li>3. Despues de comentariar estas líneas, abrimos un terminal y nos colocamos en el directorio: "elevitae-backend\services\auth"
+    y ejecutamos los siguientes comandos:</li>
+	  <ul><li><pre><code>go run .\cmd generate</code></pre></li>
+	  Despues de correr este comando se van a crear los ficheros de la carpeta migrations.
+	  <li><pre><code>go run .\cmd up</code></pre></li>
+	  Se encarga de crear las tablas la base de datos.
+	  <li><pre><code>go run .\cmd seedgen</code></pre></li>
+	  Después de ejecutar este comando se van a generar los campos de las carpetas, data y seed. Despues de ejecutar el comando.
+	  volvemos al fichero "MAIN.GO" y le quitamos el comentario a los ficheros que se habian comentariado en el paso 2.1 de este acápite.
+	  Despues de quitado los comentarios ejecutamos el siguiente comando:
+	 <li><pre><code>go run .\cmd seed</code></pre></li>
+	  Este comando se encarga de tomar los datos que estan en la carpeta DATA Y SEED, y los siembra en la base de datos.
+></ul></ul>
+	Hasta este momento ya contamos con la base de datos creada y con los datos de prueba sembrada en la misma.	 "</p>
+     
+      </section>
+      <section id="section">
+        <h2>Instalación de Docker y Redis.</h2>
+        <p>
+          
+        
+        <ul>
+<li><pre><code>docker run -d --name redis --restart unless-stopped -p 6379:6379 redis:7</code></pre></li>
+	</ul>
+	Mediante este comando te permite instalar correctamente redis dentro de docker. Una vez finalizado ya contamos con Redis configurado.</p>
+     
+      </section>
+
+      <section id="section">
+        <h2>Ejecución de Choco y generar Certificados.</h2>
+        <p>
+          Para poder generar los certificados de seguridad necesitamos instalar Chocolatey( choco ), que no es mas que un gestor de paquetes
+como el caso de NPM en Node.js. A travez de el vamos a lograr generar los certificados de seguridad del proyecto. Para ello vamos a ejecutar
+el siguiente comando:
+        
+        <ul>
+<li><pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force;</code></pre></li>
+	</ul>
+	Este comando nos permite la ejecución temporal de los scripts. No cambia la configuración global, solamente la sesión actual.
+Luego procedemos a ejecutar el siguiente comando que nos permite poder instalar CHOCO en el ordenador:
+     <ul>
+<li><pre><code>[System.Net.ServicePointManager]::SecurityProtocol = `[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</code></pre></li>
+	</ul>
+Despues que haya terminado ese proceso comprobamos que se instaló correctamente. Para ello ejecutamos el comando:
+ <ul>
+<li>- choco -v</li>
+	</ul>
+EL terminal debe mostrar el numero de versión ques esta instalado.
+Despues de comprobar que el choco eta instalado correctamente, procedemos a instalar MKCERT que no es mas que una herramienta 
+que nos permite crear certificados SSL/STL locales valídos para el desarrollo de nuestro software. Para instalarlo procedemos a ejecutar el siguiente comando:
+    <ul>
+<li><pre><code>choco install mkcert</code></pre></li>
+	</ul>
+Después de instalado esta herramietna entonces procedemos a generar el certificado en nuestro proyecto local. Para ello vamos a generar 
+por el momento el certificado en el proyecto AUTH y en el proyecto BACKEND. Primeramente tenemos que crear la carpeta donde van a estar alojado
+los certificados en cada uno de los proyceto, esto lo podemos hacer en el explorador de windows o mediante el VS Code.
+<ul>
+    <li>Proyecto AUTH: la carpeta debe estar en la raiz del proyecto, al mismo nivel de SRC. Luego mediante el terminal nos colocamos en la dirección
+        de esa carpeta de nuestro proyecto y ejecutamos el siguiente comando:
+        <ul>
+            <li><pre><code>mkcert auth.elevitae.test</code></pre></li>
+        </ul>
+    </li>
+    Este comando te va a generar 2 ficheros dentro de la carpeta "CERTS" con el mismo nombre del dominio que escribistes en el comando.
+    <li>Proyecto BACKEND: la carpeta debe estar en el siguiente directorio. "PROYECTO\SERVICES\GATEWAY" una vez creada esta carpeta nos colocamos 
+	mediante el terminal en ella y ejecutamos el siguiente código.
+        <ul>
+            <li><pre><code>mkcert backoffice.elevitae.test</code></pre></li>
+        </ul>
+        Al igual que en el comando anterior va a generar dos ficheron en esa carpeta con el nombre del dominio que escribimos en el comando.
+    </li>
+    Una vez creado los certificados en ambos proyecto comprobamos que los nombres generados coincidan con los configurados en el fichero: "VITE.CONFIG.TS" en cada uno de los proyectos.
+</ul>
+Después de comprobado esto entonces ejecutamos el siguiete comando para autorizar el certificado:
+ <ul>
+<li><pre><code>mkcert --install</code></pre></li>
+	</ul>
+
+    Una vez terminado todo esto solo nos queda configurar nuestro fichero "HOST" dentro del directorio "C:\Windows\System32\drivers\etc" 
+Al final de este fichero escribimos las siguientes líneas:
+	<pre><code>
+    127.0.0.1       localhost
+    #  ::1             localhost
+    # Added by Docker Desktop
+    10.0.0.68 host.docker.internal
+    10.0.0.68 gateway.docker.internal
+    # To allow the same kube context to work on the host and the container:
+    127.0.0.1 kubernetes.docker.internal
+
+    127.0.0.1   auth.elevitae.test
+    127.0.0.1   backoffice.elevitae.test
+    127.0.0.1   api.elevitae.test
+    </code></pre>
+Salvamos el fichero y lo podemos cerrar.
+</p>
+      </section>
+
+      <section id="section">
+        <h2>Ejecución de los servicios</h2>
+        <p>
+            <ul>
+                <li>- Configurar las conexiones del proyecto backend a la base de datos.
+	Para ello necesitamos entrar al proyecto "ELEVITAE-BACKEND". en el fichero ".ENV" modificamos los parametros de conexión a al base de datos.
+	Lo mas importante es revisas la contraseña de conexión al servidor y  el nombre que le colocamos a la base de datos.
+	"DB_PASSWORD=rootpassword"
+	"DB_NAME=authdb"
+</li>
+<li>- Levantar los servicios en el orden recomendado.</li>
+            </ul>
+Abrimos un terminal y nos colocamos en la raiz del proyecto "elevitae-backend". Una vez dentro levantamos los servicios:
+<ul>
+    <li>Gateway.
+        Estando dentro de la raiz del proyecto nos colocamos dentro de la carpeta "SERVICES/GATEWAY" y ejecutamos el siguiente comando:
+        <ul>
+            <li><pre><code>go run .\cmd</code></pre></li>
+        </ul>
+    </li>
+    <li>Auth.
+ Estando dentro de la raiz del proyecto nos colocamos dentro de la carpeta "SERVICES/AUTH" y ejecutamos el siguiente comando:
+        <ul>
+            <li><pre><code>go run .\cmd</code></pre></li>
+        </ul>
+    </li>
+</ul>
+<ul>
+    <li>- Asegurarse de que cada servicio inicie correctamente.</li>
+    <li>- Verificar que no existan errores visibles durante el arranque.</li>
+</ul>
+        
+ 
+</p>
+      </section>
+
+      <section id="section">
+        <h2>Ejecución de los servicios</h2>
+        <p>
+ Después de iniciado todos los servicios en el proyecto "ELEVITAE-BACKEND" podemos comprobar que esten funcionando correctacmente cargando 
+la aplicacion de SWAGGER donde se encuentran todos los ENDPOINT necesarios para el correcto funcionamiento del sistema.
+        <pre><code>http://localhost:8080/swagger/index.html</code></pre>
+        En esta dirección van a estar documentado y funcional los siguientes ENDPOINT:
+ 
+ <pre><code>
+    AUTH
+	1. /login
+	2. /login/2fa
+	3. /select-tenant
+	4. /auth/switch-tenant
+	5. /2fa/enable
+	6. /2fa/disable
+	7. /2fa/reset-setup
+	8. /oauth/google
+	9. /oauth/google/callback
+	10. /logout
+	11. /token/refresh
+	12. /logout/all
+    </code></pre>
+Mediante esta aplicación de servicios usted puede comprobar su correcto funcionamiento introduciendo los juegos de datos necesarios. 
+Además de conocer y comprobar cada uno de los datos que devuelve cada servicio para su correcta implementación en nuestra aplicación.
+<ul>
+    <li>Confirmar que el proyecto se ejecuta correctamente en el entorno local.
+Después de comprobar que los servicios básicos del backend esten funcionando correctamente. Procedemos entonces a iniciar cada uno de los
+diferentes proyectos.  Usando el Visual Studio Code cargamos cada una de las respectivas carpetas de los proyecto de trabajo. Una vez esto levantamos un terminal
+	y ejecutamos el siguiente comando para ejecutar el proyecto:
+</li>
+    <li>Validar que los diferentes módulos del sistema pueden comunicarse entre sí.</li>
+    <li>Identificar posibles errores iniciales antes de comenzar el desarrollo.
+</li>
+</ul>
+Este flujo representa una guía general. Los detalles específicos de cada paso se describen en
+las secciones siguientes del documento.
+
+
+
+</p>
+      </section>
+      
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>© 2025 Elevitae. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
