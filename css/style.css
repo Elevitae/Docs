@@ -52,6 +52,7 @@ main {
 main h2 {
   text-align: center;
   font-size: 25px;
+  margin-bottom: 20px;
 }
 
 main h3 {
@@ -78,6 +79,7 @@ main ul {
 #section {
   width: 80%;
   margin: 10px;
+  padding: 10px;
 }
 
 footer {
